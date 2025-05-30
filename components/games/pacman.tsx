@@ -128,40 +128,28 @@ export default function PacManGame() {
   }, [movePacman, moveGhosts, gameStarted, gameOver])
 
   useEffect(() => {
-  const handleKeyPress = (e) => {
-    if (!gameStarted || gameOver) return
+    const handleKeyPress = (e) => {
+      if (!gameStarted || gameOver) return
 
-    switch (e.key) {
-      case "ArrowUp":
-      case "w":
-      case "W":
-        e.preventDefault()
-        setDirection({ x: 0, y: -1 })
-        break
-      case "ArrowDown":
-      case "s":
-      case "S":
-        e.preventDefault()
-        setDirection({ x: 0, y: 1 })
-        break
-      case "ArrowLeft":
-      case "a":
-      case "A":
-        e.preventDefault()
-        setDirection({ x: -1, y: 0 })
-        break
-      case "ArrowRight":
-      case "d":
-      case "D":
-        e.preventDefault()
-        setDirection({ x: 1, y: 0 })
-        break
+      switch (e.key) {
+        case "ArrowUp":
+          setDirection({ x: 0, y: -1 })
+          break
+        case "ArrowDown":
+          setDirection({ x: 0, y: 1 })
+          break
+        case "ArrowLeft":
+          setDirection({ x: -1, y: 0 })
+          break
+        case "ArrowRight":
+          setDirection({ x: 1, y: 0 })
+          break
+      }
     }
-  }
 
-  window.addEventListener("keydown", handleKeyPress)
-  return () => window.removeEventListener("keydown", handleKeyPress)
-}, [gameStarted, gameOver])
+    window.addEventListener("keydown", handleKeyPress)
+    return () => window.removeEventListener("keydown", handleKeyPress)
+  }, [gameStarted, gameOver])
 
   const resetGame = () => {
     setPacman({ x: 9, y: 15 })

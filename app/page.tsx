@@ -3,6 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Gamepad2, Star, Users, Clock } from "lucide-react"
+import BannerAd from "@/components/ads/banner-ad"
+import SidebarAd from "@/components/ads/sidebar-ad"
 
 const games = [
   {
@@ -55,6 +57,16 @@ const games = [
     color: "from-purple-500 to-pink-600",
     icon: "👾",
   },
+  {
+    id: "breakout",
+    title: "Breakout",
+    description: "Break bricks with a bouncing ball",
+    difficulty: "Medium",
+    players: "1 Player",
+    category: "Arcade",
+    color: "from-red-500 to-orange-600",
+    icon: "🧱",
+  },
 ]
 
 export default function HomePage() {
@@ -104,7 +116,7 @@ export default function HomePage() {
           <div className="flex justify-center space-x-8 text-green-300 mb-8">
             <div className="flex items-center space-x-2">
               <Star className="h-5 w-5" />
-              <span>5 Classic Games</span>
+              <span>6 Classic Games</span>
             </div>
             <div className="flex items-center space-x-2">
               <Users className="h-5 w-5" />
@@ -118,6 +130,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Top Banner Ad */}
+      <BannerAd size="leaderboard" />
+
       {/* Games Grid */}
       <section className="relative z-10 py-16">
         <div className="container mx-auto px-4">
@@ -125,46 +140,59 @@ export default function HomePage() {
             {">"} SELECT YOUR GAME {"<"}
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {games.map((game) => (
-              <Card
-                key={game.id}
-                className="bg-black border-2 border-green-400 hover:border-green-300 transition-all duration-300 hover:shadow-[0_0_20px_#00ff00] group"
-              >
-                <CardHeader className="text-center">
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {game.icon}
-                  </div>
-                  <CardTitle className="text-green-400 text-xl font-bold tracking-wider">
-                    {game.title.toUpperCase()}
-                  </CardTitle>
-                  <CardDescription className="text-green-300">{game.description}</CardDescription>
-                </CardHeader>
+          <div className="flex">
+            {/* Left Sidebar Ad */}
+            <SidebarAd className="hidden xl:block w-48 p-4" />
 
-                <CardContent className="space-y-4">
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="outline" className="border-green-400 text-green-400">
-                      {game.category}
-                    </Badge>
-                    <Badge variant="outline" className="border-green-400 text-green-400">
-                      {game.difficulty}
-                    </Badge>
-                    <Badge variant="outline" className="border-green-400 text-green-400">
-                      {game.players}
-                    </Badge>
-                  </div>
+            <div className="flex-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {games.map((game) => (
+                  <Card
+                    key={game.id}
+                    className="bg-black border-2 border-green-400 hover:border-green-300 transition-all duration-300 hover:shadow-[0_0_20px_#00ff00] group"
+                  >
+                    <CardHeader className="text-center">
+                      <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        {game.icon}
+                      </div>
+                      <CardTitle className="text-green-400 text-xl font-bold tracking-wider">
+                        {game.title.toUpperCase()}
+                      </CardTitle>
+                      <CardDescription className="text-green-300">{game.description}</CardDescription>
+                    </CardHeader>
 
-                  <Link href={`/games/${game.id}`} className="block">
-                    <Button className="w-full bg-green-400 text-black hover:bg-green-300 font-bold tracking-wider border-2 border-green-400 hover:shadow-[0_0_10px_#00ff00] transition-all duration-300">
-                      {">"} PLAY NOW {"<"}
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
+                    <CardContent className="space-y-4">
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        <Badge variant="outline" className="border-green-400 text-green-400">
+                          {game.category}
+                        </Badge>
+                        <Badge variant="outline" className="border-green-400 text-green-400">
+                          {game.difficulty}
+                        </Badge>
+                        <Badge variant="outline" className="border-green-400 text-green-400">
+                          {game.players}
+                        </Badge>
+                      </div>
+
+                      <Link href={`/games/${game.id}`} className="block">
+                        <Button className="w-full bg-green-400 text-black hover:bg-green-300 font-bold tracking-wider border-2 border-green-400 hover:shadow-[0_0_10px_#00ff00] transition-all duration-300">
+                          {">"} PLAY NOW {"<"}
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Sidebar Ad */}
+            <SidebarAd className="hidden xl:block w-48 p-4" />
           </div>
         </div>
       </section>
+
+      {/* Bottom Banner Ad */}
+      <BannerAd size="leaderboard" className="mt-16" />
 
       {/* Footer */}
       <footer className="relative z-10 border-t-2 border-green-400 bg-black/90 backdrop-blur mt-16">
