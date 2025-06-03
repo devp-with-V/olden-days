@@ -20,25 +20,6 @@ A collection of classic arcade games rebuilt with modern web technologies. Exper
 - Shadcn/UI Components
 - React Hooks
 
-## 🚀 Getting Started
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/olden-days.git
-```
-
-2. Install dependencies:
-```bash
-pnpm install
-```
-
-3. Run the development server:
-```bash
-pnpm dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
 ## 🎮 Game Controls
 
 ### Tetris
@@ -52,14 +33,6 @@ pnpm dev
 - ➡️ Right Arrow / D: Move right
 - ⬆️ Up Arrow / W: Move up
 - ⬇️ Down Arrow / S: Move down
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 👥 Credits
 
