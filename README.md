@@ -36,4 +36,4 @@ A collection of classic arcade games rebuilt with modern web technologies. Exper
 
 ## 👥 Credits
 
-Created by OldenDays Team
+Created by Vedant Tendulkar
